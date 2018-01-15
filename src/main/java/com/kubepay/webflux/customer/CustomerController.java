@@ -110,7 +110,7 @@ public class CustomerController {
 	 * 
 	 * @param id
 	 *            The id of the customer to update.
-	 * @param update
+	 * @param customerToUpdate
 	 *            The Customer object containing the updated version to be
 	 *            persisted.
 	 * 

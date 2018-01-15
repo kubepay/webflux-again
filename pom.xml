@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.kubepay.webflux</groupId>
 	<artifactId>webflux-again</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>webflux-again</name>
@@ -78,29 +77,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- <junit-jupiter.version>5.0.2</junit-jupiter.version> <junit-platform.version>1.0.2</junit-platform.version> -->
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-launcher</artifactId>
-			<scope>test</scope>
-			<version>${junit-platform.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.platform</groupId>
-			<artifactId>junit-platform-engine</artifactId>
-			<scope>test</scope>
-			<version>${junit-platform.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<scope>test</scope>
-		</dependency>
+		
 		<!-- <dependency> <groupId>org.springframework.security</groupId> <artifactId>spring-security-test</artifactId> 
 			<scope>test</scope> </dependency> -->
 		<dependency>
@@ -127,24 +104,68 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<dependencies>
-					<dependency>
-						<groupId>org.junit.platform</groupId>
-						<artifactId>junit-platform-surefire-provider</artifactId>
-						<scope>runtime</scope>
-					</dependency>
-					<dependency>
-						<groupId>org.junit.jupiter</groupId>
-						<artifactId>junit-jupiter-api</artifactId>
-						<scope>runtime</scope>
-					</dependency>
-					<dependency>
-						<groupId>org.junit.jupiter</groupId>
-						<artifactId>junit-jupiter-engine</artifactId>
-						<scope>runtime</scope>
-					</dependency>
-				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-project-info-reports-plugin</artifactId>
+							<reportSets>
+					          <reportSet>
+					            <reports>
+					            <report>cim</report>
+					            <!-- 
+					            <report>dependencies</report> 
+					            <report>dependency-convergence</report>
+					            <report>dependency-info</report>
+					            <report>dependency-management</report>
+					            <report>plugin-management</report>
+					            -->
+					            <report>distribution-management</report>
+					            <report>help</report>
+					            <report>index </report>
+					            <report>issue-tracking</report>
+					            <report>license</report>
+					            <report>mailing-list </report>
+					            <report>modules</report>
+					            
+					            <report>plugins</report>
+					            <report>summary</report>
+					            <report>project-team</report>
+					            <report>mailing-list</report>
+					            <report>scm</report>
+					            </reports>
+					          </reportSet>
+					        </reportSets>
+							<!-- <version>2.2</version> 
+							<configuration>
+								
+								<dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+								<dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+							</configuration> -->
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<!--<version>2.7</version> -->
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<!--<version>2.6</version> -->
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<!--<version>2.6</version> -->
+						</plugin>
+					</reportPlugins>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -221,6 +242,39 @@
 			</build>
 		</profile>
 	</profiles>
+
+
+	<url>https://github.com/abhiesa/webflux-again</url>
+	<organization>
+		<name>abhiesa</name>
+		<url>http://abhiesa.com</url>
+	</organization>
+	<scm>
+		<url>https://github.com/abhiesa/webflux-again</url>
+		<connection>scm:git:https://github.com/abhiesa/webflux-again.git</connection>
+		<tag>HEAD</tag>
+		<developerConnection>scm:git:https://github.com/abhiesa/webflux-again.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
+
+	<issueManagement>
+		<url>https://github.com/abhiesa/webflux-again/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 
 </project>
