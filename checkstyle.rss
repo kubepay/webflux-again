@@ -26,7 +26,7 @@ under the License.
     <copyright>&#169;2018 abhiesa</copyright>
     <item>
       <title>File: 31,
-             Errors: 397,
+             Errors: 389,
              Warnings: 0,
              Infos: 0
       </title>
@@ -111,7 +111,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  7
+                  6
                 </td>
               </tr>
                           <tr>
@@ -139,7 +139,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  3
+                  2
                 </td>
               </tr>
                           <tr>
@@ -167,7 +167,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  5
+                  4
                 </td>
               </tr>
                           <tr>
@@ -251,7 +251,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  4
+                  5
                 </td>
               </tr>
                           <tr>
@@ -307,7 +307,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  35
+                  32
                 </td>
               </tr>
                           <tr>
@@ -335,12 +335,26 @@ under the License.
                   0
                 </td>
                 <td>
-                  23
+                  20
                 </td>
               </tr>
                           <tr>
                 <td>
                   <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieRequest.java">com/kubepay/webflux/movie/MovieRequest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerServiceExceptionHandler.java">com/kubepay/webflux/customer/CustomerServiceExceptionHandler.java</a>
                 </td>
                 <td>
                   0
@@ -368,20 +382,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerServiceExceptionHandler.java">com/kubepay/webflux/customer/CustomerServiceExceptionHandler.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  12
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.Movie.java">com/kubepay/webflux/movie/Movie.java</a>
                 </td>
                 <td>
@@ -392,20 +392,6 @@ under the License.
                 </td>
                 <td>
                   14
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.Quote.java">com/kubepay/webflux/trading/Quote.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  41
                 </td>
               </tr>
                           <tr>
@@ -424,7 +410,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.UserController.java">com/kubepay/webflux/trading/UserController.java</a>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.Quote.java">com/kubepay/webflux/trading/Quote.java</a>
                 </td>
                 <td>
                   0
@@ -433,7 +419,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  41
                 </td>
               </tr>
                           <tr>
@@ -452,6 +438,20 @@ under the License.
               </tr>
                           <tr>
                 <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.UserController.java">com/kubepay/webflux/trading/UserController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.WebSocketRouter.java">com/kubepay/webflux/trading/WebSocketRouter.java</a>
                 </td>
                 <td>
@@ -461,7 +461,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  8
+                  7
                 </td>
               </tr>
                           <tr>
@@ -475,7 +475,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  14
                 </td>
               </tr>
                       </tbody>
