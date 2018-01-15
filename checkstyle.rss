@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<rss version="0.91">
+  <channel>
+    <title>webflux-again - Checkstyle report</title>
+    <link>https://github.com/abhiesa/webflux-again</link>
+    <description>webflux-again - Checkstyle report</description>
+    <language>en-us</language>
+    <copyright>&#169;2018 abhiesa</copyright>
+    <item>
+      <title>File: 31,
+             Errors: 397,
+             Warnings: 0,
+             Infos: 0
+      </title>
+            <link>https://github.com/abhiesa/webflux-again/checkstyle.html</link>
+      <description>
+        <p>Click <a href="https://github.com/abhiesa/webflux-again/checkstyle.html">here</a> for the full Checkstyle report.</p>
+
+        <table summary="Files" boder="1">
+          <thead>
+            <tr>
+              <th>Files</th>
+              <th style="width:30px;"><abbr title="Info">I</abbr></th>
+              <th style="width:30px;"><abbr title="Warning">W</abbr></th>
+              <th style="width:30px;"><abbr title="Error">E</abbr></th>
+            </tr>
+          </thead>
+          <tbody>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerType.java">com/kubepay/webflux/customer/CustomerType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieService.java">com/kubepay/webflux/movie/MovieService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  9
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.stockquote.QuoteGenerator.java">com/kubepay/webflux/stockquote/QuoteGenerator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  27
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.MaritalStatus.java">com/kubepay/webflux/customer/MaritalStatus.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.WebfluxAgainApplication.java">com/kubepay/webflux/WebfluxAgainApplication.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  7
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.Gender.java">com/kubepay/webflux/customer/Gender.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerRepository.java">com/kubepay/webflux/customer/CustomerRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.PhoneType.java">com/kubepay/webflux/customer/PhoneType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.WebSocketController.java">com/kubepay/webflux/trading/WebSocketController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.stockquote.Quote.java">com/kubepay/webflux/stockquote/Quote.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#application.properties">application.properties</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieRestController.java">com/kubepay/webflux/movie/MovieRestController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  16
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerController.java">com/kubepay/webflux/customer/CustomerController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  42
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.QuotesController.java">com/kubepay/webflux/trading/QuotesController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.TradingUserRepository.java">com/kubepay/webflux/trading/TradingUserRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieServiceImpl.java">com/kubepay/webflux/movie/MovieServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  18
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.HomeController.java">com/kubepay/webflux/trading/HomeController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  10
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieRepository.java">com/kubepay/webflux/movie/MovieRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.stockquote.QuoteHandler.java">com/kubepay/webflux/stockquote/QuoteHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  35
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.EchoWebSocketHandler.java">com/kubepay/webflux/trading/EchoWebSocketHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.stockquote.QuoteRoutes.java">com/kubepay/webflux/stockquote/QuoteRoutes.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  23
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.MovieRequest.java">com/kubepay/webflux/movie/MovieRequest.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.TradingUser.java">com/kubepay/webflux/trading/TradingUser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  11
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerServiceExceptionHandler.java">com/kubepay/webflux/customer/CustomerServiceExceptionHandler.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.movie.Movie.java">com/kubepay/webflux/movie/Movie.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  14
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.Quote.java">com/kubepay/webflux/trading/Quote.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  41
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.CustomerServiceException.java">com/kubepay/webflux/customer/CustomerServiceException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  15
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.UserController.java">com/kubepay/webflux/trading/UserController.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.Address.java">com/kubepay/webflux/customer/Address.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.trading.WebSocketRouter.java">com/kubepay/webflux/trading/WebSocketRouter.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="https://github.com/abhiesa/webflux-again/checkstyle.html#com.kubepay.webflux.customer.Customer.java">com/kubepay/webflux/customer/Customer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  13
+                </td>
+              </tr>
+                      </tbody>
+        </table>
+        
+      </description>
+    </item>
+  </channel>
+</rss>
+
