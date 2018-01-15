@@ -11,6 +11,18 @@ deploy:
   skip_cleanup: true
   on:
     tags: false
+deploy:
+  - provider: script
+    script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn clean install site"
+    skip_cleanup: true
+    on:
+      tags: false
+  - provider: heroku
+    api_key:
+      secure: "FgIhJFysgwBPP/dTjuCQqgZyMo8By7Bprj6jwq24nchug0BwtGVYnYpGmyqRLINQ6+Pq71nWX4VltPJr4HtHR+Z65VRMtsDYy0cqS4kSoS9XvfsVmk4wKeyjQZuBl6v+LHbtBab7awrnc47EBvW3O2pTkM2eghyzeuDjpWwHeeXpBN831MGZhlYbfOEnzrIVeUj3PlBcTUZfuDXxqGeDAszrQehdz+JINvMCBiwClETj7sILRkB5RDmsNc0d0T0ZGiu+r3LGd7w+KH4jm+8wUQYfj+Mau+9ABR7MXfcO1P9f1KT05v5UchRAv8lzhj6nvw4P8IE4yNID1w0+yl2NyOWf/bFV0R78gSX+bW52qi7uD4k80ViLgm2kYAuotnuJM5RUsewhE0EAFOvvunD2JNJ9GXP+o96P750b0TDAeQoK1bLZYBq/aer20DgAFXrMVXBR+qm1pZdqpO5/pikLNWAanZb0XShl0+Vhl9m52V/DTB2oqAR552aOMY8KzWmay8dycgXBAq39qCQi0jPPnjOPA7iWfk9Q7KqQqQFcrYTonnfL5eDtYlrf+rk2MESw5h8h5Vy4hfGRiBtM0x28eRxHwlDEKjiOJIqckyU/nX9/VWYxUy8j28+1TVpxxSxvKQVAzvP0X6FeiiMhoE7s4Gb3HBi0Yuc+h/qRNfu8YSQ="
+    app: web-hello-world
+    on:
+      repo: abhiesa/webflux-again
 
 notifications:
   email:
@@ -18,3 +30,5 @@ notifications:
     - abhiesa@gmail.com
     on_success: change
     on_failure: always
+
+
