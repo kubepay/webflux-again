@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebSocketRouter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">webflux-again</a> &gt; <a href="index.source.html" class="el_package">com.kubepay.webflux.trading</a> &gt; <span class="el_source">WebSocketRouter.java</span></div><h1>WebSocketRouter.java</h1><pre class="source lang-java linenums">package com.kubepay.webflux.trading;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.reactive.HandlerMapping;
+import org.springframework.web.reactive.handler.SimpleUrlHandlerMapping;
+import org.springframework.web.reactive.socket.WebSocketHandler;
+import org.springframework.web.reactive.socket.server.support.WebSocketHandlerAdapter;
+
+@Configuration
+<span class="fc" id="L14">public class WebSocketRouter {</span>
+
+	@Bean
+	public HandlerMapping handlerMapping() {
+
+<span class="fc" id="L19">		Map&lt;String, WebSocketHandler&gt; map = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L20">		map.put(&quot;/websocket/echo&quot;, new EchoWebSocketHandler());</span>
+
+<span class="fc" id="L22">		SimpleUrlHandlerMapping mapping = new SimpleUrlHandlerMapping();</span>
+<span class="fc" id="L23">		mapping.setOrder(10);</span>
+<span class="fc" id="L24">		mapping.setUrlMap(map);</span>
+<span class="fc" id="L25">		return mapping;</span>
+	}
+
+	@Bean
+	public WebSocketHandlerAdapter handlerAdapter() {
+<span class="fc" id="L30">		return new WebSocketHandlerAdapter();</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">webflux-again</a> &gt; <a href="index.source.html" class="el_package">com.kubepay.webflux.stockquote</a> &gt; <span class="el_source">QuoteGenerator.java</span></div><h1>QuoteGenerator.java</h1><pre class="source lang-java linenums">package com.kubepay.webflux.stockquote;
+
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.function.BiFunction;
+
+import org.springframework.stereotype.Component;
+
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.SynchronousSink;
+
+@Component
+public class QuoteGenerator {
+
+<span class="fc" id="L20">	private final MathContext mathContext = new MathContext(2);</span>
+
+<span class="fc" id="L22">	private final Random random = new Random();</span>
+
+<span class="fc" id="L24">	private final List&lt;Quote&gt; prices = new ArrayList&lt;&gt;();</span>
+
+	/**
+	 * Bootstraps the generator with tickers and initial prices
+	 */
+<span class="fc" id="L29">	public QuoteGenerator() {</span>
+<span class="fc" id="L30">		this.prices.add(new Quote(&quot;CTXS&quot;, 82.26));</span>
+<span class="fc" id="L31">		this.prices.add(new Quote(&quot;DELL&quot;, 63.74));</span>
+<span class="fc" id="L32">		this.prices.add(new Quote(&quot;GOOG&quot;, 847.24));</span>
+<span class="fc" id="L33">		this.prices.add(new Quote(&quot;MSFT&quot;, 65.11));</span>
+<span class="fc" id="L34">		this.prices.add(new Quote(&quot;ORCL&quot;, 45.71));</span>
+<span class="fc" id="L35">		this.prices.add(new Quote(&quot;RHT&quot;, 84.29));</span>
+<span class="fc" id="L36">		this.prices.add(new Quote(&quot;VMW&quot;, 92.21));</span>
+<span class="fc" id="L37">	}</span>
+	
+	public Flux&lt;Quote&gt; fetchQuoteStream(Duration period) {
+
+		// We use here Flux.generate to create quotes,
+    // iterating on each stock starting at index 0
+<span class="fc" id="L43">		return Flux.generate(() -&gt; 0,</span>
+				(BiFunction&lt;Integer, SynchronousSink&lt;Quote&gt;, Integer&gt;) (index, sink) -&gt; {
+<span class="fc" id="L45">					Quote updatedQuote = updateQuote(this.prices.get(index));</span>
+<span class="fc" id="L46">					sink.next(updatedQuote);</span>
+<span class="fc" id="L47">					return ++index % this.prices.size();</span>
+				})
+				// We want to emit them with a specific period;
+        // to do so, we zip that Flux with a Flux.interval
+<span class="fc" id="L51">				.zipWith(Flux.interval(period)).map(t -&gt; t.getT1())</span>
+				// Because values are generated in batches,
+        // we need to set their timestamp after their creation
+<span class="fc" id="L54">				.map(quote -&gt; {</span>
+<span class="fc" id="L55">					quote.setInstant(Instant.now());</span>
+<span class="fc" id="L56">					return quote;</span>
+				})
+<span class="fc" id="L58">				.log(&quot;io.spring.workshop.stockquotes&quot;);</span>
+	}
+	
+	
+	private Quote updateQuote(Quote quote) {
+<span class="fc" id="L63">		BigDecimal priceChange = quote.getPrice()</span>
+<span class="fc" id="L64">				.multiply(new BigDecimal(0.05 * this.random.nextDouble()), this.mathContext);</span>
+<span class="fc" id="L65">		return new Quote(quote.getTicker(), quote.getPrice().add(priceChange));</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

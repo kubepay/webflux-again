@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>QuoteRoutes.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">webflux-again</a> &gt; <a href="index.source.html" class="el_package">com.kubepay.webflux.stockquote</a> &gt; <span class="el_source">QuoteRoutes.java</span></div><h1>QuoteRoutes.java</h1><pre class="source lang-java linenums">package com.kubepay.webflux.stockquote;
+
+
+//import static org.springframework.web.reactive.function.server.RequestPredicates.path;
+//import static org.springframework.web.reactive.function.server.RouterFunctions.nest;
+//import static org.springframework.web.reactive.function.server.RouterFunctions.route;
+//import static org.springframework.http.MediaType.*;
+
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.RequestPredicates.POST;
+import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
+
+import org.springframework.context.annotation.Bean;
+
+import org.springframework.web.reactive.function.server.RouterFunction;
+import org.springframework.web.reactive.function.server.RouterFunctions;
+import org.springframework.web.reactive.function.server.ServerResponse;
+
+import org.springframework.context.annotation.Configuration;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.http.MediaType.APPLICATION_STREAM_JSON;
+import static org.springframework.http.MediaType.TEXT_PLAIN;
+import static org.springframework.web.reactive.function.server.RequestPredicates.contentType;
+
+@Configuration
+<span class="fc" id="L27">public class QuoteRoutes {</span>
+
+//	static RouterFunction&lt;?&gt; routes(QuoteHandler quoteHandler) {
+//		return nest(path(&quot;/hello&quot;), //
+//				nest(accept(MediaType.APPLICATION_JSON), //
+//						route(GET(&quot;/&quot;), quoteHandler::getJson)//
+//				)).and(nest(path(&quot;/echo&quot;), //
+//						nest(accept(MediaType.TEXT_PLAIN), //
+//								route(GET(&quot;/&quot;), quoteHandler::getPlain)//
+//						))).and(nest(path(&quot;/quotes&quot;), //
+//								nest(accept(MediaType.APPLICATION_STREAM_JSON), //
+//										route(GET(&quot;/&quot;), quoteHandler::getStream)//
+//								)));
+//	}
+	
+	
+	@Bean
+	public RouterFunction&lt;ServerResponse&gt; route(QuoteHandler quoteHandler) {
+<span class="fc" id="L45">		return RouterFunctions</span>
+<span class="fc" id="L46">				.route(GET(&quot;/hello&quot;).and(accept(TEXT_PLAIN)), quoteHandler::hello)</span>
+<span class="fc" id="L47">				.andRoute(POST(&quot;/echo&quot;).and(accept(TEXT_PLAIN).and(contentType(TEXT_PLAIN))), quoteHandler::echo)</span>
+<span class="fc" id="L48">				.andRoute(GET(&quot;/quotes&quot;).and(accept(APPLICATION_JSON)), quoteHandler::fetchQuotes)</span>
+<span class="fc" id="L49">				.andRoute(GET(&quot;/quotes&quot;).and(accept(APPLICATION_STREAM_JSON)), quoteHandler::streamQuotes);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

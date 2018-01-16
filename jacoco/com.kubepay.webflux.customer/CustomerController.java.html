@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">webflux-again</a> &gt; <a href="index.source.html" class="el_package">com.kubepay.webflux.customer</a> &gt; <span class="el_source">CustomerController.java</span></div><h1>CustomerController.java</h1><pre class="source lang-java linenums">package com.kubepay.webflux.customer;
+
+import static java.lang.String.format;
+import static org.springframework.http.MediaType.*;
+import static org.springframework.http.ResponseEntity.created;
+import static org.springframework.http.ResponseEntity.noContent;
+import static org.springframework.http.ResponseEntity.notFound;
+import static org.springframework.http.ResponseEntity.ok;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
+
+import java.net.URI;
+import java.util.List;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.bson.types.ObjectId;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping(path = &quot;/customers&quot;, produces = { APPLICATION_JSON_UTF8_VALUE })
+public class CustomerController {
+
+	private CustomerRepository repo;
+
+<span class="fc" id="L36">	public CustomerController(CustomerRepository repo) {</span>
+<span class="fc" id="L37">		this.repo = repo;</span>
+<span class="fc" id="L38">	}</span>
+
+	/**
+	 * Query for all customers.
+	 * &lt;p&gt;
+	 * This method is idempotent.
+	 * 
+	 * @return HTTP 200 if customers found or HTTP 204 otherwise.
+	 */
+	//@PreAuthorize(&quot;#oauth2.hasAnyScope('read','write','read-write')&quot;)
+	@RequestMapping(method = GET)
+	public Mono&lt;ResponseEntity&lt;List&lt;Customer&gt;&gt;&gt; allCustomers() {
+
+<span class="fc" id="L51">		return repo.findAll().collectList()</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">			.filter(customers -&gt; customers.size() &gt; 0)</span>
+<span class="fc" id="L53">			.map(customers -&gt; ok(customers))</span>
+<span class="fc" id="L54">			.defaultIfEmpty(noContent().build());</span>
+	}
+
+	/**
+	 * Query for a customer with the given Id.
+	 * &lt;p&gt;
+	 * This method is idempotent.
+	 * 
+	 * @param id
+	 *            The id of the customer to look for.
+	 * 
+	 * @return HTTP 200 if the customer is found or HTTP 404 otherwise.
+	 */
+	//@PreAuthorize(&quot;#oauth2.hasAnyScope('read','write','read-write')&quot;)
+	@RequestMapping(method = GET, value = &quot;/{id}&quot;)
+	public Mono&lt;ResponseEntity&lt;Customer&gt;&gt; oneCustomer(@PathVariable @NotNull ObjectId id) {
+
+<span class="fc" id="L71">		return repo.findById(id)</span>
+<span class="fc" id="L72">			.map(customer -&gt; ok().contentType(APPLICATION_JSON_UTF8).body(customer))</span>
+<span class="fc" id="L73">			.defaultIfEmpty(notFound().build());</span>
+	}
+
+	/**
+	 * Create a new customer.
+	 * 
+	 * @param newCustomer
+	 *            The customer to create.
+	 * 
+	 * @return HTTP 201, the header Location contains the URL of the created
+	 *         customer.
+	 */
+	//@PreAuthorize(&quot;#oauth2.hasAnyScope('write','read-write')&quot;)
+	@RequestMapping(method = POST, consumes = { APPLICATION_JSON_UTF8_VALUE })
+	public Mono&lt;ResponseEntity&lt;?&gt;&gt; addCustomer(@RequestBody @Valid Customer newCustomer) {
+
+<span class="fc" id="L89">		return Mono.justOrEmpty(newCustomer.getId())</span>
+<span class="fc" id="L90">			.flatMap(id -&gt; repo.existsById(id))</span>
+<span class="fc" id="L91">			.defaultIfEmpty(Boolean.FALSE)</span>
+<span class="fc" id="L92">			.flatMap(exists -&gt; {</span>
+
+<span class="fc bfc" id="L94" title="All 2 branches covered.">				if (exists) {</span>
+<span class="fc" id="L95">					throw new CustomerServiceException(HttpStatus.BAD_REQUEST,</span>
+						&quot;Customer already exists, to update an existing customer use PUT instead.&quot;);
+				}
+
+<span class="fc" id="L99">				return repo.save(newCustomer).map(saved -&gt; {</span>
+<span class="fc" id="L100">					return created(URI.create(format(&quot;/customers/%s&quot;, saved.getId()))).build();</span>
+				});
+			});
+	}
+
+	/**
+	 * Update an existing customer.
+	 * &lt;p&gt;
+	 * This method is idempotent.
+	 * &lt;p&gt;
+	 * 
+	 * @param id
+	 *            The id of the customer to update.
+	 * @param customerToUpdate
+	 *            The Customer object containing the updated version to be
+	 *            persisted.
+	 * 
+	 * @return HTTP 204 otherwise HTTP 400 if the customer does not exist.
+	 */
+	//@PreAuthorize(&quot;#oauth2.hasAnyScope('write','read-write')&quot;)
+	@RequestMapping(method = PUT, value = &quot;/{id}&quot;, consumes = { APPLICATION_JSON_UTF8_VALUE })
+	public Mono&lt;ResponseEntity&lt;?&gt;&gt; updateCustomer(@PathVariable @NotNull ObjectId id,
+			@RequestBody @Valid Customer customerToUpdate) {
+
+<span class="fc" id="L124">		return repo.existsById(id).flatMap(exists -&gt; {</span>
+
+<span class="fc bfc" id="L126" title="All 2 branches covered.">			if (!exists) {</span>
+<span class="fc" id="L127">				throw new CustomerServiceException(HttpStatus.BAD_REQUEST,</span>
+					&quot;Customer does not exist, to create a new customer use POST instead.&quot;);
+			}
+
+<span class="fc" id="L131">			return repo.save(customerToUpdate).then(Mono.just(noContent().build()));</span>
+		});
+	}
+
+	/**
+	 * Delete a customer.
+	 * &lt;p&gt;
+	 * This method is idempotent, if it's called multiples times with the same
+	 * id then the first call will delete the customer and subsequent calls will
+	 * be silently ignored.
+	 * 
+	 * @param id
+	 *            The id of the customer to delete.
+	 * @return HTTP 204
+	 */
+	//@PreAuthorize(&quot;#oauth2.hasAnyScope('write','read-write')&quot;)
+	@RequestMapping(method = DELETE, value = &quot;/{id}&quot;)
+	public Mono&lt;ResponseEntity&lt;?&gt;&gt; deleteCustomer(@PathVariable @NotNull ObjectId id) {
+
+<span class="fc" id="L150">		final Mono&lt;ResponseEntity&lt;?&gt;&gt; noContent = Mono.just(noContent().build());</span>
+
+<span class="fc" id="L152">		return repo.existsById(id)</span>
+<span class="fc" id="L153">			.filter(Boolean::valueOf) // Delete only if customer exists</span>
+<span class="fc" id="L154">			.flatMap(exists -&gt; repo.deleteById(id).then(noContent))</span>
+<span class="fc" id="L155">			.switchIfEmpty(noContent);</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
